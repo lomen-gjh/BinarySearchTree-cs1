@@ -11,7 +11,12 @@ public class AVL {
         if (root==null)
             root=new Node(d);
         else
-            root.insert(d);
+        {
+            Node fakeParent=new Node(-1000);
+            fakeParent.right=root;
+            root.insert(d,fakeParent);
+            root=fakeParent.right;
+        }
     }
     public void inorder(){
         if (root!=null)
