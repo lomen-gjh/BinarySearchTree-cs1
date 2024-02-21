@@ -68,19 +68,19 @@ public class Node {
         }
         updateDepthBalance();
         if (balance>1){  //If leaning to the right
-            if (right.balance==1){ //if this.right is leaning to the right
-                leftRotation(this);
+            if (right.balance>0){ //if this.right is leaning to the right
+                this.leftRotation(parent);
             }
             else { //if this.right is leaning to the left
-                rightLeftRotation(this);
+                this.rightLeftRotation(parent);
             }
         }
         else if (balance<-1){ //If leaning to the left
             if (left.balance==-1){ // if this.left is leaning to the left
-                rightRotation(this);
+                this.rightRotation(parent);
             }
             else {//If this.left is leaning to the right
-                leftRightRotation(this);
+                this.leftRightRotation(parent);
             }
         }
     }
