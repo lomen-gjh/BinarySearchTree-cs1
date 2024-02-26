@@ -39,4 +39,15 @@ public class AVL {
             root.drawNode(g,x,y);
         }
     }
+    public Node delete(int target){
+        if (root!=null){
+            Node fakeParent=new Node(-1000);
+            fakeParent.right=root;
+            //Finish the Node delete function, in order for AVL delete function to work
+            Node deleted=root.delete(target,fakeParent);//Store the deleted node, so that we know what it was
+            root=fakeParent.right;
+            return deleted;
+        }
+        return null;
+    }
 }
